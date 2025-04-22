@@ -1,4 +1,4 @@
- import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 
 class TaskItem extends StatelessWidget {
   const TaskItem({
@@ -17,9 +17,9 @@ class TaskItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 6, horizontal: 16),
+      margin: EdgeInsets.symmetric(vertical: 6, horizontal: 16),
       decoration: BoxDecoration(
-        color: const Color(0xFF1E1E1E),
+        color: Color(0xFF1E1E1E),
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(0),
           topRight: Radius.circular(8),
@@ -42,31 +42,31 @@ class TaskItem extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(width: 12),
+          SizedBox(width: 12),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   title,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
                     color: Colors.white,
                   ),
                 ),
-                const SizedBox(height: 4),
+                SizedBox(height: 4),
                 Row(
                   children: [
-                    const Icon(
+                    Icon(
                       Icons.calendar_today,
                       size: 14,
                       color: Colors.grey,
                     ),
-                    const SizedBox(width: 4),
+                    SizedBox(width: 4),
                     Text(
                       date,
-                      style: const TextStyle(fontSize: 13, color: Colors.grey),
+                      style: TextStyle(fontSize: 13, color: Colors.grey),
                     ),
                   ],
                 ),
@@ -74,16 +74,16 @@ class TaskItem extends StatelessWidget {
             ),
           ),
           Container(
-            margin: const EdgeInsets.symmetric(vertical: 6, horizontal: 16),
-            padding: const EdgeInsets.all(6),
+            margin: EdgeInsets.symmetric(vertical: 6, horizontal: 16),
+            padding: EdgeInsets.all(6),
             decoration: BoxDecoration(
               border: Border.all(color: Colors.black, width: 1),
               shape: BoxShape.circle,
-              gradient: const LinearGradient(
+              gradient: LinearGradient(
                 colors: [Color(0xFFBC6FF1), Color(0xFF892CDC)],
               ),
             ),
-            child: const Icon(Icons.check, size: 16, color: Colors.black),
+            child: Icon(Icons.check, size: 16, color: Colors.black),
           )
         ],
       ),

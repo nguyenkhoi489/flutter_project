@@ -14,13 +14,13 @@ class _HeadingWidgetState extends State<HeadingWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0,vertical: 16.0),
+      padding: EdgeInsets.symmetric(horizontal: 16.0,vertical: 16.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
             widget.title,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
               color: Colors.white,
@@ -28,7 +28,7 @@ class _HeadingWidgetState extends State<HeadingWidget> {
           ),
           Text(
             'See All',
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 16,
               color: Color(0xFFBA83DE),
             ),
