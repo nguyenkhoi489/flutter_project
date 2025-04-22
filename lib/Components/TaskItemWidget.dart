@@ -1,12 +1,11 @@
-import 'dart:ffi';
-import 'package:flutter/material.dart';
+ import 'package:flutter/material.dart';
 
 class TaskItem extends StatelessWidget {
   const TaskItem({
     super.key,
     required this.title,
     required this.date,
-    this.colorDefault = const Color(0xFFFFD6D6),
+    required this.colorDefault,
     this.isChecked = true,
   });
 

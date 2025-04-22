@@ -31,6 +31,19 @@ class ControlWidget extends StatefulWidget {
 }
 
 class _ControlWidgetState extends State<ControlWidget> {
+  final List<Map<String, dynamic>> items = [
+    {
+      'title': 'Mobile App Research',
+      'date': '4 Oct',
+      'colorDefault': const Color(0xFFFFD6D6),
+    },
+    {
+      'title': 'Prepare Wireframe for Main Flow',
+      'date': '4 Oct',
+      'colorDefault': const Color(0xFFD7F0FF),
+    },
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,17 +60,13 @@ class _ControlWidgetState extends State<ControlWidget> {
             progress: 0.66,
           ),
           HeadingWidget(title: 'Today’s Task'),
-          TaskItem(
-            title: 'Mobile App Research',
-            date: '4 Oct',
-
-          ),
-          TaskItem(
-            title: 'Prepare Wireframe for Main Flow',
-            date: '4 Oct',
-            colorDefault: const Color(0xFFD7F0FF),
-          ),
-
+          for (var item in items)
+            TaskItem(
+              title: item['title'],
+              date: item['date'],
+              colorDefault: item['colorDefault'],
+              isChecked: item['isChecked'] ?? true,
+            ),
         ],
       ),
     );
