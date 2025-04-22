@@ -20,7 +20,7 @@ class TaskItem extends StatelessWidget {
       margin: EdgeInsets.symmetric(vertical: 6, horizontal: 16),
       decoration: BoxDecoration(
         color: Color(0xFF1E1E1E),
-        borderRadius: BorderRadius.all(Radius.circular(8))
+        borderRadius: BorderRadius.circular(8)
       ),
       child: Row(
         children: [
