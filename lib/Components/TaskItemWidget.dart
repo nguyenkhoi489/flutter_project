@@ -21,9 +21,9 @@ class TaskItem extends StatelessWidget {
       decoration: BoxDecoration(
         color: Color(0xFF1E1E1E),
         borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(0),
+          topLeft: Radius.circular(8),
           topRight: Radius.circular(8),
-          bottomLeft: Radius.circular(0),
+          bottomLeft: Radius.circular(8),
           bottomRight: Radius.circular(8),
         ),
       ),
