@@ -1,16 +1,10 @@
 import 'package:flutter/material.dart';
 
-
-class HeadingWidget extends StatefulWidget {
+class HeadingWidget extends StatelessWidget {
   const HeadingWidget({super.key, required this.title});
 
   final String title;
 
-  @override
-  State<HeadingWidget> createState() => _HeadingWidgetState();
-}
-
-class _HeadingWidgetState extends State<HeadingWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -19,7 +13,7 @@ class _HeadingWidgetState extends State<HeadingWidget> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            widget.title,
+            title,
             style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
