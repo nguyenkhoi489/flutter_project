@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/ui/core/resources/app_colors.dart';
 import 'package:myapp/ui/core/resources/app_icons.dart';
-import 'package:myapp/utils/extenstions/task_priority_extension.dart';
-import 'package:myapp/utils/extenstions/task_status_extension.dart';
+import 'package:myapp/utils/extensions/task_priority_extension.dart';
+import 'package:myapp/utils/extensions/task_status_extension.dart';
 
 import '../../../../domain/models/task.dart';
 import '../../../../utils/helpers/function.dart';
