@@ -5,7 +5,7 @@ import 'package:myapp/ui/core/resources/app_colors.dart';
 extension TaskPriorityExtension on TaskPriority {
    Color get color {
     switch (this) {
-      case TaskPriority.height:
+      case TaskPriority.high:
         return AppColors.hexFACBBA;
       case TaskPriority.medium:
         return AppColors.hexD7F0FF;

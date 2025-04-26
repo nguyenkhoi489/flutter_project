@@ -12,14 +12,14 @@ import 'package:myapp/ui/core/ui/heading/heading.dart';
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
 
-  final List<Task> toDayTasks = [
+  final List<Task> todayTasks = [
     Task(
       time: DateTime.now(),
       title: 'Mobile App Research',
       description: 'description',
       startTime: DateTime(1, 1, 2025),
       endTime: DateTime(1, 1, 2026),
-      priority: TaskPriority.height,
+      priority: TaskPriority.high,
       status: TaskStatus.complete,
       createdAt: DateTime.now(),
     ),
@@ -45,6 +45,8 @@ class HomeScreen extends StatelessWidget {
     ),
   ];
 
+  int get taskComplete => todayTasks.where((task) => task.status == TaskStatus.complete).length;
+
   final List<Task> tomorrowTasks = [
     Task(
       time: DateTime.now(),
@@ -52,7 +54,7 @@ class HomeScreen extends StatelessWidget {
       description: 'description',
       startTime: DateTime(1, 1, 2025),
       endTime: DateTime(1, 1, 2026),
-      priority: TaskPriority.height,
+      priority: TaskPriority.high,
       status: TaskStatus.incomplete,
       createdAt: DateTime.now(),
     ),
@@ -99,15 +101,15 @@ class HomeScreen extends StatelessWidget {
                   DailyTask(
                     title: 'Daily Task',
                     subTitle: 'You are almost done go ahead',
-                    totalTask: toDayTasks.length,
-                    taskComplete: 2,
+                    totalTask: todayTasks.length,
+                    taskComplete: taskComplete,
                   ),
                   SizedBox(height: 30),
                   HeadingWidget(title: 'Today’s Task', actionName: 'See All'),
                   SizedBox(height: 20),
-                  for (int i = 0; i < toDayTasks.length; i++) ...[
-                    TaskItem(task: toDayTasks[i]),
-                    i != toDayTasks.length - 1
+                  for (int i = 0; i < todayTasks.length; i++) ...[
+                    TaskItem(task: todayTasks[i]),
+                    i != todayTasks.length - 1
                         ? SizedBox(height: 10)
                         : SizedBox(height: 30),
                   ],
