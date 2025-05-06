@@ -13,6 +13,7 @@ class Priority extends StatefulWidget {
 }
 
 class _PriorityState extends State<Priority> {
+  var isChoosed;
   @override
   Widget build(BuildContext context) {
     final double screenWidget = MediaQuery.of(context).size.width - 40;
@@ -35,10 +36,16 @@ class _PriorityState extends State<Priority> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               GestureDetector(
+                onTap: () {
+                  setState(() {
+                    isChoosed = 'high';
+                  });
+                },
                 child: Container(
                   height: 40,
                   width: (screenWidget - 20) / 3,
                   decoration: BoxDecoration(
+                    color: isChoosed == 'high' ? AppColors.hexFACBBA : Colors.transparent,
                     border: Border.all(color: AppColors.hexFACBBA, width: 2),
                     borderRadius: BorderRadius.all(Radius.circular(8)),
                   ),
@@ -46,7 +53,7 @@ class _PriorityState extends State<Priority> {
                     child: Text(
                       'High',
                       style: TextStyle(
-                        color: Colors.white,
+                        color: isChoosed == 'high' ? Colors.black : Colors.white,
                         fontWeight: FontWeight.w500,
                         fontSize: 20,
                       ),
@@ -56,10 +63,16 @@ class _PriorityState extends State<Priority> {
               ),
               SizedBox(height: 7),
               GestureDetector(
+                onTap: () {
+                  setState(() {
+                    isChoosed = 'medium';
+                  });
+                },
                 child: Container(
                   height: 40,
                   width: (screenWidget - 20) / 3,
                   decoration: BoxDecoration(
+                    color: isChoosed == 'medium' ? AppColors.hexD7F0FF : Colors.transparent,
                     border: Border.all(color: AppColors.hexD7F0FF, width: 2),
                     borderRadius: BorderRadius.all(Radius.circular(8)),
                   ),
@@ -67,8 +80,8 @@ class _PriorityState extends State<Priority> {
                     child: Text(
                       'Medium',
                       style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w500,
+                        color: isChoosed == 'medium' ? Colors.black : Colors.white,
+                        fontWeight: FontWeight.w400,
                         fontSize: 20,
                       ),
                     ),
@@ -77,10 +90,16 @@ class _PriorityState extends State<Priority> {
               ),
               SizedBox(height: 7),
               GestureDetector(
+                onTap: () {
+                  setState(() {
+                    isChoosed = 'low';
+                  });
+                },
                 child: Container(
                   height: 40,
                   width: (screenWidget - 20) / 3,
                   decoration: BoxDecoration(
+                    color: isChoosed == 'low' ? AppColors.hexFAD9FF : Colors.transparent,
                     border: Border.all(color: AppColors.hexFAD9FF, width: 2),
                     borderRadius: BorderRadius.all(Radius.circular(8)),
                   ),
@@ -88,8 +107,8 @@ class _PriorityState extends State<Priority> {
                     child: Text(
                       'Low',
                       style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w500,
+                        color: isChoosed == 'low' ? Colors.black : Colors.white,
+                        fontWeight: FontWeight.w400,
                         fontSize: 20,
                       ),
                     ),
