@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/ui/features/home/home_screen.dart';
+import 'package:myapp/ui/features/task/task_screen.dart';
 
 void main() {
   runApp(HomePageApp());
@@ -31,7 +31,7 @@ class _ControlWidgetState extends State<ControlWidget> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: HomeScreen()
+      child: TaskScreen()
     );
   }
 }
