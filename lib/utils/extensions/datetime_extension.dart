@@ -17,17 +17,21 @@ extension DatetimeExtension on DateTime
   DateTime get nextWeek {
     return add(const Duration(days: DateTime.daysPerWeek));
   }
+
   String get getAbbreviated {
     return DateFormat.E().format(this);
   }
+
   bool isSameDate(DateTime other) {
     return year == other.year &&
         month == other.month &&
         day == other.day;
   }
+
   String get getDayNumber {
     return DateFormat('d').format(this);
   }
+
   List <DateTime> get daysOfWeek {
     final firstDate = startWeek;
     return List.generate(DateTime.daysPerWeek, (index) {
