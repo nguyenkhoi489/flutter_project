@@ -92,7 +92,7 @@ class TaskWeekCalendarItem extends StatelessWidget {
                       ),
                     ),
                     Positioned(
-                      bottom: -2,
+                      bottom: -3,
                       child: Container(
                         width: 8,
                         height: 8,
