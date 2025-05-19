@@ -1,28 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/domain/models/task.dart';
 import 'package:myapp/ui/core/resources/app_colors.dart';
 import 'package:myapp/ui/core/resources/app_icons.dart';
 
-import '../../../../domain/models/task.dart';
-
-class TimePicker extends StatefulWidget {
-  const TimePicker({super.key, this.task});
+class TaskTimePickerUi extends StatefulWidget {
+  const TaskTimePickerUi({super.key, this.task});
 
   final Task? task;
 
   @override
-  State<TimePicker> createState() => _TimePickerState();
+  State<TaskTimePickerUi> createState() => _TaskTimePickerUiState();
 }
 
-class _TimePickerState extends State<TimePicker> {
+class _TaskTimePickerUiState extends State<TaskTimePickerUi> {
   @override
   Widget build(BuildContext context) {
     final double screenWidget = MediaQuery.of(context).size.width - 40;
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Row(
         children: [
           Column(
-            mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
@@ -33,21 +31,20 @@ class _TimePickerState extends State<TimePicker> {
                   fontWeight: FontWeight.w400,
                 ),
               ),
-              SizedBox(height: 7),
+              const SizedBox(height: 7),
               GestureDetector(
                 child: Container(
                   height: 58,
                   width: (screenWidget - 11) / 2,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: AppColors.hex181818,
                     borderRadius: BorderRadius.all(Radius.circular(14)),
                   ),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      SizedBox(width: 8),
-                      Image(image: AppIcons.iconClock, width: 24),
-                      SizedBox(width: 14),
+                      const SizedBox(width: 8),
+                      const Image(image: AppIcons.iconClock, width: 24),
+                      const SizedBox(width: 14),
                       Text(
                         '06 : 00 PM',
                         style: TextStyle(
@@ -62,9 +59,8 @@ class _TimePickerState extends State<TimePicker> {
               ),
             ],
           ),
-          SizedBox(width: 11),
+          const SizedBox(width: 11),
           Column(
-            mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
@@ -75,21 +71,20 @@ class _TimePickerState extends State<TimePicker> {
                   fontWeight: FontWeight.w400,
                 ),
               ),
-              SizedBox(height: 7),
+              const SizedBox(height: 7),
               GestureDetector(
                 child: Container(
                   height: 58,
                   width: (screenWidget - 11) / 2,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: AppColors.hex181818,
                     borderRadius: BorderRadius.all(Radius.circular(14)),
                   ),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      SizedBox(width: 8),
-                      Image(image: AppIcons.iconClock, width: 24),
-                      SizedBox(width: 14),
+                      const SizedBox(width: 8),
+                      const Image(image: AppIcons.iconClock, width: 24),
+                      const SizedBox(width: 14),
                       Text(
                         '09 : 00 PM',
                         style: TextStyle(

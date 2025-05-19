@@ -3,27 +3,26 @@ import 'package:myapp/domain/models/task.dart';
 import 'package:myapp/ui/core/resources/app_colors.dart';
 import 'package:myapp/ui/core/ui/heading/heading.dart';
 
-class FormFieldWidget extends StatefulWidget {
-  const FormFieldWidget({super.key, this.task});
+class TaskFormFieldUi extends StatefulWidget {
+  const TaskFormFieldUi({super.key, this.task});
 
   final Task? task;
 
   @override
-  State<FormFieldWidget> createState() => _FormFieldWidgetState();
+  State<TaskFormFieldUi> createState() => _TaskFormFieldUiState();
 }
 
-class _FormFieldWidgetState extends State<FormFieldWidget> {
+class _TaskFormFieldUiState extends State<TaskFormFieldUi> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         children: [
-          HeadingWidget(title: 'Schedule'),
-          SizedBox(height: 18),
+          const HeadingWidget(title: 'Schedule'),
+          const SizedBox(height: 18),
           TextFormField(
-            autofocus: false,
-            style: TextStyle(color: Colors.white),
+            style: const TextStyle(color: Colors.white),
             decoration: InputDecoration(
               filled: true,
               fillColor: AppColors.hex181818,
@@ -33,21 +32,20 @@ class _FormFieldWidgetState extends State<FormFieldWidget> {
                 fontSize: 16,
                 fontWeight: FontWeight.w400,
               ),
-              enabledBorder: OutlineInputBorder(
+              enabledBorder: const OutlineInputBorder(
                 borderRadius: BorderRadius.all(Radius.circular(14)),
                 borderSide: BorderSide(color: Colors.transparent, width: 0),
               ),
-              focusedBorder: OutlineInputBorder(
+              focusedBorder: const OutlineInputBorder(
                 borderRadius: BorderRadius.all(Radius.circular(14)),
                 borderSide: BorderSide(color: Colors.transparent, width: 0),
               ),
             ),
           ),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
           TextFormField(
             maxLines: 4,
-            autofocus: false,
-            style: TextStyle(color: Colors.white),
+            style: const TextStyle(color: Colors.white),
             decoration: InputDecoration(
               filled: true,
               fillColor: AppColors.hex181818,
@@ -57,11 +55,11 @@ class _FormFieldWidgetState extends State<FormFieldWidget> {
                 fontSize: 16,
                 fontWeight: FontWeight.w400,
               ),
-              enabledBorder: OutlineInputBorder(
+              enabledBorder: const OutlineInputBorder(
                 borderRadius: BorderRadius.all(Radius.circular(14)),
                 borderSide: BorderSide(color: Colors.transparent, width: 0),
               ),
-              focusedBorder: OutlineInputBorder(
+              focusedBorder: const OutlineInputBorder(
                 borderRadius: BorderRadius.all(Radius.circular(14)),
                 borderSide: BorderSide(color: Colors.transparent, width: 0),
               ),

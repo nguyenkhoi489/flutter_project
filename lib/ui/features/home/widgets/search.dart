@@ -13,8 +13,8 @@ class _SearchState extends State<Search> {
   @override
   Widget build(BuildContext context) {
     return SearchBar(
-      leading: Padding(
-        padding: const EdgeInsets.only(left: 7, right: 12),
+      leading: const Padding(
+        padding: EdgeInsets.only(left: 7, right: 12),
         child: AppIcons.iconSearch,
       ),
       hintText: 'Search Task Here',

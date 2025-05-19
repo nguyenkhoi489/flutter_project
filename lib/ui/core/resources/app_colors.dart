@@ -16,4 +16,6 @@ class AppColors {
   static const hexC59ADF = Color(0xFFC59ADF);
   static const hex292D32 = Color(0xFF292D32);
   static const hexCD83C6 = Color(0xFFCD83C6);
+  static const hexWhite60 = Color(0x99FFFFFF);
+
 }

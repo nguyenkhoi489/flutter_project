@@ -3,11 +3,11 @@ import 'package:myapp/domain/models/task.dart';
 import 'package:myapp/domain/models/task_priority.dart';
 import 'package:myapp/domain/models/task_status.dart';
 import 'package:myapp/ui/core/resources/app_colors.dart';
-import 'package:myapp/ui/features/home/widgets/task_item.dart';
+import 'package:myapp/ui/core/ui/heading/heading.dart';
 import 'package:myapp/ui/features/home/widgets/daily_task.dart';
 import 'package:myapp/ui/features/home/widgets/nav.dart';
 import 'package:myapp/ui/features/home/widgets/search.dart';
-import 'package:myapp/ui/core/ui/heading/heading.dart';
+import 'package:myapp/ui/features/home/widgets/task_item.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
@@ -45,7 +45,8 @@ class HomeScreen extends StatelessWidget {
     ),
   ];
 
-  int get taskComplete => todayTasks.where((task) => task.status == TaskStatus.complete).length;
+  int get taskComplete =>
+      todayTasks.where((task) => task.status == TaskStatus.complete).length;
 
   final List<Task> tomorrowTasks = [
     Task(
@@ -84,52 +85,53 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.hex020206,
-      body: CustomScrollView(
-        slivers: [
-          SliverToBoxAdapter(
-            child: Padding(
-              padding: EdgeInsets.all(20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Nav(),
-                  SizedBox(height: 22),
-                  Search(),
-                  SizedBox(height: 22),
-                  HeadingWidget(title: 'Progress', actionName: 'See All'),
-                  SizedBox(height: 20),
-                  DailyTask(
-                    title: 'Daily Task',
-                    subTitle: 'You are almost done go ahead',
-                    totalTask: todayTasks.length,
-                    taskComplete: taskComplete,
-                  ),
-                  SizedBox(height: 30),
-                  HeadingWidget(title: 'Today’s Task', actionName: 'See All'),
-                  SizedBox(height: 20),
-                  for (int i = 0; i < todayTasks.length; i++) ...[
-                    TaskItem(task: todayTasks[i]),
-                    i != todayTasks.length - 1
-                        ? SizedBox(height: 10)
-                        : SizedBox(height: 30),
-                  ],
-                  HeadingWidget(title: 'Tomorrow Task', actionName: 'See All'),
-                  SizedBox(height: 20),
-                  for (int i = 0; i < tomorrowTasks.length; i++) ...[
-                    TaskItem(task: tomorrowTasks[i]),
-                    i != tomorrowTasks.length - 1
-                        ? SizedBox(height: 10)
-                        : SizedBox(height: 18),
-                  ],
-                ],
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Nav(),
+              const SizedBox(height: 22),
+              const Search(),
+              const SizedBox(height: 22),
+              const HeadingWidget(title: 'Progress', actionName: 'See All'),
+              const SizedBox(height: 20),
+              DailyTask(
+                title: 'Daily Task',
+                subTitle: 'You are almost done go ahead',
+                totalTask: todayTasks.length,
+                taskComplete: taskComplete,
               ),
-            ),
+              const SizedBox(height: 30),
+              const HeadingWidget(title: 'Today’s Task', actionName: 'See All'),
+              const SizedBox(height: 20),
+              for (int i = 0; i < todayTasks.length; i++) ...[
+                TaskItem(task: todayTasks[i]),
+                if (i != todayTasks.length - 1)
+                  const SizedBox(height: 10)
+                else
+                  const SizedBox(height: 30),
+              ],
+              const HeadingWidget(
+                title: 'Tomorrow Task',
+                actionName: 'See All',
+              ),
+              const SizedBox(height: 20),
+              for (int i = 0; i < tomorrowTasks.length; i++) ...[
+                TaskItem(task: tomorrowTasks[i]),
+                if (i != tomorrowTasks.length - 1)
+                  const SizedBox(height: 10)
+                else
+                  const SizedBox(height: 18),
+              ],
+            ],
           ),
-        ],
+        ),
       ),
-      floatingActionButton: Container(
+      floatingActionButton: DecoratedBox(
         decoration: BoxDecoration(
-          gradient: LinearGradient(
+          gradient: const LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors: [AppColors.hexDE83B0, AppColors.hexC59ADF],
@@ -139,9 +141,10 @@ class HomeScreen extends StatelessWidget {
         child: FloatingActionButton(
           onPressed: () {},
           backgroundColor: Colors.transparent,
-          child: Icon(Icons.add, color: AppColors.hex292D32, size: 30),
+          child: const Icon(Icons.add, color: AppColors.hex292D32, size: 30),
         ),
       ),
     );
   }
+
 }

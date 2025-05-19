@@ -18,7 +18,7 @@ class HeadingWidget extends StatelessWidget {
         children: [
           Text(
             title,
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.white,
               fontSize: 22
             ),
@@ -26,7 +26,7 @@ class HeadingWidget extends StatelessWidget {
           if (actionName != null )
             Text(
               actionName!,
-              style: TextStyle(
+              style: const TextStyle(
                 color: AppColors.hexBA83DE,
                 fontSize: 16
               ),

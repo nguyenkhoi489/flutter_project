@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/ui/features/task/task_screen.dart';
+import 'package:myapp/ui/features/create_new_task/create_new_task.dart';
+import 'package:myapp/ui/features/home/home_screen.dart';
 
 void main() {
-  runApp(HomePageApp());
+  runApp(const HomePageApp());
 }
 
 class HomePageApp extends StatelessWidget {
@@ -11,10 +12,10 @@ class HomePageApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Example Todolist APP',
       debugShowCheckedModeBanner: false,
-      home: const ControlWidget(),
+      home: ControlWidget(),
     );
   }
 }
@@ -30,8 +31,8 @@ class _ControlWidgetState extends State<ControlWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: TaskScreen()
+    return const SafeArea(
+      child: CreateNewTask()
     );
   }
 }

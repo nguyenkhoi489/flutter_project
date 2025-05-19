@@ -10,7 +10,7 @@ class Nav extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Column(
+        const Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
@@ -22,7 +22,6 @@ class Nav extends StatelessWidget {
               ),
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(
                   'today to complete',
@@ -44,7 +43,7 @@ class Nav extends StatelessWidget {
               width: 50,
               height: 50,
               clipBehavior: Clip.antiAlias,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 shape: BoxShape.circle,
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
@@ -60,11 +59,11 @@ class Nav extends StatelessWidget {
               child: Container(
                 width: 15,
                 height: 15,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   shape: BoxShape.circle,
                   color: AppColors.hexFF763B,
                 ),
-                child: Center(
+                child: const Center(
                   child: Text('5', style: TextStyle(
                       color: Colors.white,
                       fontSize: 9

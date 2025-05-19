@@ -13,5 +13,4 @@ extension TaskPriorityExtension on TaskPriority {
         return AppColors.hexFAD9FF;
     }
   }
-
 }

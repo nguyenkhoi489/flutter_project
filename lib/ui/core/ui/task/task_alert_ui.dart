@@ -1,28 +1,28 @@
 import 'package:flutter/material.dart';
 
-import '../../../../domain/models/task.dart';
-import '../../../core/resources/app_icons.dart';
+import 'package:myapp/domain/models/task.dart';
+import 'package:myapp/ui/core/resources/app_icons.dart';
 
-class Alert extends StatefulWidget {
-  const Alert({super.key, this.task});
+class TaskAlert extends StatefulWidget {
+  const TaskAlert({super.key, this.task});
 
   final Task? task;
 
   @override
-  State<Alert> createState() => _AlertState();
+  State<TaskAlert> createState() => _TaskAlertState();
 }
 
-class _AlertState extends State<Alert> {
-  bool isChecked = false;
+class _TaskAlertState extends State<TaskAlert> {
+  bool isChecked = true;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Expanded(
+          const Expanded(
             child: Text(
               'Get alert for this task',
               style: TextStyle(

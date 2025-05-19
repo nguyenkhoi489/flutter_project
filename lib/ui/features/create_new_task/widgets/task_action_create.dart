@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/ui/core/resources/app_colors.dart';
 
-class ActionCreate extends StatelessWidget {
-  const ActionCreate({super.key});
+class TaskActionCreate extends StatelessWidget {
+  const TaskActionCreate({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class ActionCreate extends StatelessWidget {
         child: Container(
           width: screenWidget,
           height: 50,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(8)),
             gradient: LinearGradient(
               colors: [
@@ -23,7 +23,7 @@ class ActionCreate extends StatelessWidget {
               ],
             ),
           ),
-          child: Center(
+          child: const Center(
             child: Text(
               'Create Task',
               style: TextStyle(

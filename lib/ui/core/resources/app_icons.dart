@@ -25,4 +25,6 @@ class AppIcons {
   static const iconClock = AssetImage('assets/icons/icon_clock.png');
   static const iconActive = AssetImage('assets/icons/icon_active.png');
   static const iconUnActive = AssetImage('assets/icons/icon_un_active.png');
+  static const iconPrev = AssetImage('assets/icons/icon_previous.png');
+  static const iconNext = AssetImage('assets/icons/icon_next.png');
 }
