@@ -3,25 +3,25 @@ import 'package:myapp/ui/core/resources/app_colors.dart';
 import 'package:myapp/ui/core/resources/app_icons.dart';
 
 class Nav extends StatelessWidget {
-  const Nav({super.key});
-
+  const Nav({super.key, required this.taskComplete});
+  final int taskComplete;
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        const Column(
+        Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'You have got 5 tasks',
-              style: TextStyle(
+              'You have got $taskComplete tasks',
+              style: const TextStyle(
                 color: Colors.white,
                 fontSize: 25,
                 fontWeight: FontWeight.w600,
               ),
             ),
-            Row(
+            const Row(
               children: [
                 Text(
                   'today to complete',

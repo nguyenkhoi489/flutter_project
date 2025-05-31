@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:myapp/ui/core/resources/app_colors.dart';
 import 'package:myapp/ui/core/resources/app_icons.dart';
 import 'package:myapp/utils/extensions/datetime_extension.dart';
-import 'package:myapp/utils/helpers/function.dart';
 
 class TaskWeekHeader extends StatelessWidget {
   const TaskWeekHeader({
@@ -38,7 +37,7 @@ class TaskWeekHeader extends StatelessWidget {
         ),
         Expanded(
             child: Text(
-              '${formatDate(date.startWeek)} - ${formatDate(date.endWeek)}',
+              '${date.startWeek.formatDate()} - ${date.endWeek.formatDate()}',
               style: const TextStyle(
                   fontSize: 20,
                   color: AppColors.hexBA83DE

@@ -1,26 +1,39 @@
 import 'package:flutter/material.dart';
 
 import 'package:myapp/domain/models/task.dart';
+import 'package:myapp/domain/models/task_priority.dart';
 import 'package:myapp/ui/core/resources/app_colors.dart';
 
 class TaskPriorityUi extends StatefulWidget {
-  const TaskPriorityUi({super.key, this.task});
+  const TaskPriorityUi({super.key, this.taskPriority, required this.onPriorityChanged});
 
-  final Task? task;
+  final TaskPriority? taskPriority;
+
+  final ValueChanged onPriorityChanged;
 
   @override
   State<TaskPriorityUi> createState() => _TaskPriorityUiState();
 }
 
 class _TaskPriorityUiState extends State<TaskPriorityUi> {
-  var isChosen = '';
+  TaskPriority? isPriority;
+  String? _priorityError;
 
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    if (widget.taskPriority != null)
+      {
+        isPriority = widget.taskPriority;
+      }
+  }
+  @override
   Widget build(BuildContext context) {
+    print(isPriority);
     final double screenWidget = MediaQuery.of(context).size.width - 40;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
-
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -32,6 +45,14 @@ class _TaskPriorityUiState extends State<TaskPriorityUi> {
               fontWeight: FontWeight.w400,
             ),
           ),
+          if (_priorityError != null)
+            Padding(
+              padding: const EdgeInsets.only(top: 4, bottom: 4),
+              child: Text(
+                _priorityError!,
+                style: const TextStyle(color: Colors.red, fontSize: 14),
+              ),
+            ),
           const SizedBox(height: 7),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -39,17 +60,18 @@ class _TaskPriorityUiState extends State<TaskPriorityUi> {
               GestureDetector(
                 onTap: () {
                   setState(() {
-                    isChosen = 'high';
+                    isPriority = TaskPriority.high;
                   });
+                  widget.onPriorityChanged(isPriority);
                 },
                 child: Container(
                   height: 40,
                   width: (screenWidget - 20) / 3,
                   decoration: BoxDecoration(
                     color:
-                    isChosen == 'high'
-                        ? AppColors.hexFACBBA
-                        : Colors.transparent,
+                        isPriority == TaskPriority.high
+                            ? AppColors.hexFACBBA
+                            : Colors.transparent,
                     border: Border.all(color: AppColors.hexFACBBA, width: 2),
                     borderRadius: const BorderRadius.all(Radius.circular(8)),
                   ),
@@ -58,7 +80,9 @@ class _TaskPriorityUiState extends State<TaskPriorityUi> {
                       'High',
                       style: TextStyle(
                         color:
-                        isChosen == 'high' ? Colors.black : Colors.white,
+                            isPriority == TaskPriority.high
+                                ? Colors.black
+                                : Colors.white,
                         fontWeight: FontWeight.w500,
                         fontSize: 20,
                       ),
@@ -70,17 +94,18 @@ class _TaskPriorityUiState extends State<TaskPriorityUi> {
               GestureDetector(
                 onTap: () {
                   setState(() {
-                    isChosen = 'medium';
+                    isPriority = TaskPriority.medium;
                   });
+                  widget.onPriorityChanged(isPriority);
                 },
                 child: Container(
                   height: 40,
                   width: (screenWidget - 20) / 3,
                   decoration: BoxDecoration(
                     color:
-                    isChosen == 'medium'
-                        ? AppColors.hexD7F0FF
-                        : Colors.transparent,
+                        isPriority == TaskPriority.medium
+                            ? AppColors.hexD7F0FF
+                            : Colors.transparent,
                     border: Border.all(color: AppColors.hexD7F0FF, width: 2),
                     borderRadius: const BorderRadius.all(Radius.circular(8)),
                   ),
@@ -89,7 +114,9 @@ class _TaskPriorityUiState extends State<TaskPriorityUi> {
                       'Medium',
                       style: TextStyle(
                         color:
-                        isChosen == 'medium' ? Colors.black : Colors.white,
+                            isPriority == TaskPriority.medium
+                                ? Colors.black
+                                : Colors.white,
                         fontWeight: FontWeight.w400,
                         fontSize: 20,
                       ),
@@ -101,17 +128,18 @@ class _TaskPriorityUiState extends State<TaskPriorityUi> {
               GestureDetector(
                 onTap: () {
                   setState(() {
-                    isChosen = 'low';
+                    isPriority = TaskPriority.low;
                   });
+                  widget.onPriorityChanged(isPriority);
                 },
                 child: Container(
                   height: 40,
                   width: (screenWidget - 20) / 3,
                   decoration: BoxDecoration(
                     color:
-                    isChosen == 'low'
-                        ? AppColors.hexFAD9FF
-                        : Colors.transparent,
+                        isPriority == TaskPriority.low
+                            ? AppColors.hexFAD9FF
+                            : Colors.transparent,
                     border: Border.all(color: AppColors.hexFAD9FF, width: 2),
                     borderRadius: const BorderRadius.all(Radius.circular(8)),
                   ),
@@ -119,7 +147,10 @@ class _TaskPriorityUiState extends State<TaskPriorityUi> {
                     child: Text(
                       'Low',
                       style: TextStyle(
-                        color: isChosen == 'low' ? Colors.black : Colors.white,
+                        color:
+                            isPriority == TaskPriority.low
+                                ? Colors.black
+                                : Colors.white,
                         fontWeight: FontWeight.w400,
                         fontSize: 20,
                       ),
@@ -132,5 +163,11 @@ class _TaskPriorityUiState extends State<TaskPriorityUi> {
         ],
       ),
     );
+  }
+
+  void validatePriority() {
+    setState(() {
+      _priorityError = isPriority == null ? 'Vui lòng chọn độ ưu tiên' : null;
+    });
   }
 }

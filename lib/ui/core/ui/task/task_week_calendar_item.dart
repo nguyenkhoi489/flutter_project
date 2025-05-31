@@ -35,6 +35,7 @@ class TaskWeekCalendarItem extends StatelessWidget {
           ...dates.map((date) {
             final isSelectedDay = selectedDate?.isSameDate(date) ?? false;
             return GestureDetector(
+              behavior: HitTestBehavior.translucent,
               onTap: () => onDateSelected(date),
               child: SizedBox(
                 height: itemHeight,

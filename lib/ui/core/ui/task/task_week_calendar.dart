@@ -26,12 +26,11 @@ class _TaskWeekCalendarState extends State<TaskWeekCalendar> {
 
   DateTime? _selectedDate;
 
-  final int _initialPage = 520;
+  late int _initialPage = 520;
 
   late PageController _pageController;
 
-  late final List <DateTime> _dates;
-
+  late final List<DateTime> _dates;
 
   @override
   void initState() {
@@ -40,37 +39,45 @@ class _TaskWeekCalendarState extends State<TaskWeekCalendar> {
     _pageController = PageController(initialPage: _initialPage);
     _date = widget.date;
     _selectedDate = widget.selectedDate;
-    _dates = [_date.previousWeek,_date,_date.nextWeek];
+    _dates = [_date.previousWeek, _date, _date.nextWeek];
   }
 
   @override
   Widget build(BuildContext context) {
-
     return Column(
       children: [
         TaskWeekHeader(
           date: _date,
-          onPreviousWeek: () {
+          onPreviousWeek: () async {
             setState(() {
-              _date = _date.previousWeek;
-              _dates[1] = _date;
+              _initialPage--;
             });
+            await _pageController.animateToPage(
+              _initialPage,
+              duration: const Duration(microseconds: 3000),
+              curve: Curves.easeInOut,
+            );
           },
-          onNextWeek: () {
+          onNextWeek: () async {
             setState(() {
-              _date = _date.nextWeek;
-              _dates[1] = _date;
+              _initialPage++;
             });
+            await _pageController.animateToPage(
+              _initialPage,
+              duration: const Duration(microseconds: 300),
+              curve: Curves.easeInOut,
+            );
           },
         ),
         SizedBox(
           height:
-        ((MediaQuery.of(context).size.width -
-    6 * 2) / DateTime.daysPerWeek) / (58 / 70),
+              ((MediaQuery.of(context).size.width - 6 * 2) /
+                  DateTime.daysPerWeek) /
+              (58 / 70),
           child: PageView.builder(
             itemBuilder: (content, index) {
               return TaskWeekCalendarItem(
-                dates: _dates[index % _dates.length ].daysOfWeek,
+                dates: _dates[index % _dates.length].daysOfWeek,
                 selectedDate: _selectedDate,
                 onDateSelected: (date) {
                   setState(() {
@@ -87,10 +94,12 @@ class _TaskWeekCalendarState extends State<TaskWeekCalendar> {
       ],
     );
   }
+
   void _onChangeWeek(int pageIndex) {
     final initPage = pageIndex % 3;
     setState(() {
       _date = _dates[initPage];
+      _initialPage = pageIndex;
     });
     if (initPage == 0) {
       _dates[1] = _date.nextWeek;
@@ -103,9 +112,6 @@ class _TaskWeekCalendarState extends State<TaskWeekCalendar> {
       _dates[2] = _date.nextWeek;
     }
   }
-
-
-
 }
 
 /// 1 2 0 1 2 0 1 2 0 1 2

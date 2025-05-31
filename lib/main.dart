@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/ui/features/create_new_task/create_new_task.dart';
 import 'package:myapp/ui/features/home/home_screen.dart';
 
 void main() {
@@ -32,7 +31,7 @@ class _ControlWidgetState extends State<ControlWidget> {
   @override
   Widget build(BuildContext context) {
     return const SafeArea(
-      child: CreateNewTask()
+      child: HomeScreen()
     );
   }
 }

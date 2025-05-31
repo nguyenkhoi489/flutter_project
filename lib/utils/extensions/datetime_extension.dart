@@ -27,6 +27,9 @@ extension DatetimeExtension on DateTime
         month == other.month &&
         day == other.day;
   }
+  String formatDate({String format = 'd MMM'}) {
+    return DateFormat(format).format(this);
+  }
 
   String get getDayNumber {
     return DateFormat('d').format(this);

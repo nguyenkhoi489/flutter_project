@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:myapp/ui/core/resources/app_colors.dart';
 
 class TaskActionCreate extends StatelessWidget {
-  const TaskActionCreate({super.key});
+
+  const TaskActionCreate({super.key, required this.onCreateTask});
+
+  final VoidCallback onCreateTask;
 
   @override
   Widget build(BuildContext context) {
@@ -10,6 +13,7 @@ class TaskActionCreate extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: GestureDetector(
+        onTap: onCreateTask,
         child: Container(
           width: screenWidget,
           height: 50,
